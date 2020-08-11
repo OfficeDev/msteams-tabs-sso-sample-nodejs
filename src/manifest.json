@@ -1,7 +1,7 @@
 {
     "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.5/MicrosoftTeams.schema.json",
     "manifestVersion": "1.5",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "id": "{new GUID for this Teams app - not the Azure AD App ID}",
     "packageName": "com.contoso.aadSsoSample",
     "developer": {
@@ -42,6 +42,6 @@
     "validDomains": [],
     "webApplicationInfo": {
         "id": "{appId}",
-        "resource": "api://{ngrokSubdomain}.ngrok.io/4270fd50-64c5-439f-88a8-a9de938b8927"
+        "resource": "api://{ngrokSubdomain}.ngrok.io/{appId}"
     }
 }
