@@ -42,6 +42,6 @@
     "validDomains": [],
     "webApplicationInfo": {
         "id": "{appId}",
-        "resource": "api://{ngrokSubdomain}.ngrok.io/4270fd50-64c5-439f-88a8-a9de938b8927"
+        "resource": "api://{ngrokSubdomain}.ngrok.io/{appId}"
     }
 }
