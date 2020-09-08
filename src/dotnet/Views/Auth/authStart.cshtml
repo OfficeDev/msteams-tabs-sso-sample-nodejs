@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 @{
     Layout = null;
 }
@@ -24,7 +25,7 @@
             // See https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-implicit
             // for documentation on these query parameters
             let queryParams = {
-                client_id: "#{clientId}",
+                client_id: "@Configuration["ClientId"]",
                 response_type: "id_token token",
                 response_mode: "fragment",
                 scope: "https://graph.microsoft.com/User.Read email openid profile offline_access",
@@ -34,7 +35,7 @@
                 login_hint: context.loginHint,
             };
             // Go to the AzureAD authorization endpoint (tenant-specific endpoint, not "common")
-            // For guest users, we want an access token for the tenant we are currently in, not the home tenant of the guest. 
+            // For guest users, we want an access token for the tenant we are currently in, not the home tenant of the guest.
             let authorizeEndpoint = `https://login.microsoftonline.com/${context.tid}/oauth2/v2.0/authorize?${toQueryString(queryParams)}`;
             window.location.assign(authorizeEndpoint);
         });

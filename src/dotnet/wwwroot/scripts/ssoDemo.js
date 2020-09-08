@@ -55,6 +55,9 @@
                     .then((responseJson) => {
                         if (responseJson.error) {
                             reject(responseJson.error);
+                        }
+                        else if("unauthorized_client" === responseJson) {
+                            reject(responseJson);
                         } else {
                             const serverSideToken = responseJson;
                             display(serverSideToken);
@@ -131,7 +134,7 @@
             return useServerSideToken(serverSideToken);
         })
         .catch((error) => {
-            if (error === "invalid_grant") {
+            if ("unauthorized_client" === error || "invalid_grant" === error) {
                 display(`Error: ${error} - user or admin consent required`);
                 // Display in-line button so user can consent
                 let button = display("Consent", "button");
