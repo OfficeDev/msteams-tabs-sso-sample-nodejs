@@ -65,3 +65,6 @@ build/
 
 # VS Code config files
 .vscode/**
+src/dotnet/.vs/**
+src/dotnet/bin/**
+src/dotnet/obj/**
